@@ -115,3 +115,12 @@ For real estate teams this demonstrates disciplined listed-property risk monitor
 Derived data source: [published ledger](https://github.com/Anjaney336/india-realestate-quant-backtest/blob/main/results/historical/ledger.csv), underlying [Yahoo Finance](https://finance.yahoo.com/), accessed 24 October 2026 for this extension. Historical source acquisition dates remain in data manifests. No new market data were fetched. Full equations, forecast rows and input hash are in `src/tail_diagnostics.py` and `results/risk/`.
 
 The matching simulator formerly embedded under execution_lab has moved to the standalone [Quant Execution Lab](https://github.com/Anjaney336/quant-execution-lab). It is a separate project and is not counted as evidence for the historical strategy.
+
+## Annual historical diagnostics
+
+Year-by-year net returns and zero-return concentration from the existing published ledger; no new threshold tuning or regenerated prices.
+
+![Annual historical diagnostics](results/risk/annual_diagnostics.svg)
+
+Run `python annual_diagnostics.py` after installing `matplotlib==3.10.7`. Sources are the existing documented fixture/ledger, accessed 24 October 2026. All sensitivity inputs are assumptions.
+

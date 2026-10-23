@@ -1,10 +1,12 @@
 # Indian Real Estate Quantitative Relative Value
 
-**Cointegration, Kalman hedge ratios and walk-forward execution research.**
+**A crossover project for listed-property investment research and quantitative portfolio analysis.**
 
-Anjaney Malhotra · Mechanical Engineering, VIT Vellore · Investment and data analytics portfolio
+Cointegration, Kalman hedge ratios, walk-forward testing and causal downside-risk monitoring.
 
-[Read the research case](https://anjaney336.github.io/portfolio/quant-research/) · [Companion property underwriting](https://github.com/Anjaney336/bengaluru-office-underwriting)
+Anjaney Malhotra Â· Mechanical Engineering, VIT Vellore Â· Investment and data analytics portfolio
+
+[Read the research case](https://anjaney336.github.io/portfolio/quant-research/) Â· [Companion property underwriting](https://github.com/Anjaney336/bengaluru-office-underwriting)
 
 ## Result first
 
@@ -80,16 +82,16 @@ Cash earns zero. Sharpe and Sortino use a zero return hurdle, not a 10-year bond
 
 ## Files for reviewers
 
-- `src/data_loader.py` — validation, cache, publication-aware rates and distribution events.
-- `src/signals.py` — cointegration, Holm, OU, Kalman and yield spreads.
-- `src/regime_hmm.py` — training and forward-only inference.
-- `src/backtest.py` — walk-forward selection and execution ledger.
-- `src/metrics.py` — return statistics, DSR and bootstrap.
-- `tests/test_research.py` — 21 tests, including future-data mutation, execution lag, prior-volume limits, known cash-flow identities and missing-data behavior.
-- `notebooks/` — four walkthroughs for data, pair selection, regimes and results.
-- `results/historical/` — audited historical outputs, including all selection diagnostics and parameter trials.
-- `results/demo/` — separate synthetic validation outputs.
-- `data/README.md` — source links, schemas and limitations.
+- `src/data_loader.py` â€” validation, cache, publication-aware rates and distribution events.
+- `src/signals.py` â€” cointegration, Holm, OU, Kalman and yield spreads.
+- `src/regime_hmm.py` â€” training and forward-only inference.
+- `src/backtest.py` â€” walk-forward selection and execution ledger.
+- `src/metrics.py` â€” return statistics, DSR and bootstrap.
+- `tests/test_research.py` â€” 21 tests, including future-data mutation, execution lag, prior-volume limits, known cash-flow identities and missing-data behavior.
+- `notebooks/` â€” four walkthroughs for data, pair selection, regimes and results.
+- `results/historical/` â€” audited historical outputs, including all selection diagnostics and parameter trials.
+- `results/demo/` â€” separate synthetic validation outputs.
+- `data/README.md` â€” source links, schemas and limitations.
 
 ## Primary references
 
@@ -101,3 +103,15 @@ Cash earns zero. Sharpe and Sortino use a zero return hurdle, not a 10-year bond
 - [yfinance documentation and data-use notice](https://ranaroussi.github.io/yfinance/)
 
 Developed for Anjaney Malhotra's portfolio with AI coding assistance. No employer sponsorship, live trading returns or proprietary employer data are claimed. Review the mathematics and reproduce the findings before presenting the project in interviews.
+
+## Portfolio-risk extension (24 October 2026)
+
+Run `python src/tail_diagnostics.py` against the published historical ledger. The **27-test** suite now includes six tail-diagnostic tests for quantile interpolation, exclusion of current/future observations, all-cash ties, scale equivariance, invalid returns and tail ordering.
+
+The rolling diagnostic uses the previous 252 observations to estimate 95% loss VaR and a threshold-tail average. It evaluates **1,423 forecasts with 71 exceedances (4.99%)**. The ledger contains **1,528 zero-return days out of 1,675**, including a 257-day zero-return spell. This concentration matters: a near-5% breach rate alone does not establish calibration, independence or usefulness. The tail average includes ties and is not presented as exact fixed-probability-mass Expected Shortfall.
+
+For real estate teams this demonstrates disciplined listed-property risk monitoring, exposure/cost interpretation and a willingness to reject a weak investment thesis. It is not direct property valuation. For quant teams it demonstrates causal estimation, multiple-testing controls, execution accounting and explicit negative findings. Public filings and a tenant-level property model belong in the [companion underwriting repository](https://github.com/Anjaney336/bengaluru-office-underwriting).
+
+Derived data source: [published ledger](https://github.com/Anjaney336/india-realestate-quant-backtest/blob/main/results/historical/ledger.csv), underlying [Yahoo Finance](https://finance.yahoo.com/), accessed 24 October 2026 for this extension. Historical source acquisition dates remain in data manifests. No new market data were fetched. Full equations, forecast rows and input hash are in `src/tail_diagnostics.py` and `results/risk/`.
+
+The matching simulator formerly embedded under execution_lab has moved to the standalone [Quant Execution Lab](https://github.com/Anjaney336/quant-execution-lab). It is a separate project and is not counted as evidence for the historical strategy.

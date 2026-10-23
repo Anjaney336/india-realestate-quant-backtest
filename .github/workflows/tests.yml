@@ -17,3 +17,4 @@ jobs:
       - run: python -m pip install -r requirements.txt
       - run: python -m pytest -q
       - run: python run.py --mode demo --hypothetical-shorts --output results/ci-demo
+      - run: python src/tail_diagnostics.py

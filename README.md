@@ -1,3 +1,5 @@
+> **Consolidated research, 24 October 2026:** The expanded version of this work is maintained in [integrated-real-assets-research](https://github.com/Anjaney336/integrated-real-assets-research), with a [research dashboard](https://anjaney336.github.io/portfolio/research/integrated-real-assets-research/). This repository preserves the earlier implementation and results.
+
 # Indian Real Estate Quantitative Relative Value
 
 **A crossover project for listed-property investment research and quantitative portfolio analysis.**
